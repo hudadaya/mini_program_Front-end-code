@@ -42,15 +42,14 @@
 				</template>
 			</view>
 		</view>
-		<view class="bottom">
+<!-- 		<view class="bottom">
 			<view class="show-time" v-if="!isMultiple && !isSection && !isQuantum">
 				预约时间：{{orderDateTime}}
 			</view>
 			<button form-type="submit" type="default" size="mini" class="submit-btn" @click="handleSubmit">
 				确认预约
 			</button>
-
-		</view>
+		</view> -->
 	</view>
 </template>
 
@@ -94,19 +93,19 @@
 			},
 			selectedTabColor: { // 日期栏选中的颜色
 				type: String,
-				default: "#FB4B5C"
+				default: "#57C3C2E0"
 			},
 			selectedItemColor: { // 时间选中的颜色
 				type: String,
-				default: "#FB4B5C"
+				default: "#fff"
 			},
 			beginTime: {
 				type: String,
-				default: "09:00:00"
+				default: "08:00:00"
 			},
 			endTime: {
 				type: String,
-				default: "19:00:00"
+				default: "21:00:00"
 			},
 			appointTime: { // 预约的时间
 				type: Array,
@@ -249,7 +248,6 @@
 			selectTimeEvent(index, item) {
 				if (this.isQuantum) {
 					return this.handleSelectQuantum(index, item)
-
 				}
 				if (item.disable) return
 				if (this.isMultiple) {
@@ -414,6 +412,6 @@
 	}
 
 	.borderb {
-		border-bottom: 2px solid #FB4B5C;
+		border-bottom: 2px solid #57C3C2E0;;
 	}
 </style>

@@ -166,20 +166,20 @@ var _default2 = {
     selectedTabColor: {
       // 日期栏选中的颜色
       type: String,
-      default: "#FB4B5C"
+      default: "#57C3C2E0"
     },
     selectedItemColor: {
       // 时间选中的颜色
       type: String,
-      default: "#FB4B5C"
+      default: "#fff"
     },
     beginTime: {
       type: String,
-      default: "09:00:00"
+      default: "08:00:00"
     },
     endTime: {
       type: String,
-      default: "19:00:00"
+      default: "21:00:00"
     },
     appointTime: {
       // 预约的时间

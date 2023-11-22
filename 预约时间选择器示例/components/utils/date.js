@@ -62,32 +62,59 @@ export function initData() {
 
 //时间数组
 export function initTime(startTime = '10:00:00', endTime = '21:00:00', timeInterval = 1, isQuantum = false) {
-	const time = []
-	const date = timeStamp(Date.now()).allDate
-	const startDate = `${date} ${startTime}`
-	const endDate = `${date} ${endTime}`
-	const startTimeStamp = new Date(startDate).getTime()
-	const endTimeStamp = new Date(endDate).getTime()
-	const timeStr = 3600 * 1000 * timeInterval
-	const sum = (endTimeStamp - startTimeStamp) / timeStr
-	const count = sum % 2 == 0 ? sum : (sum - 1)
-	let num = 0
-	for (let i = startTimeStamp; i <= endTimeStamp; i = i + timeStr) {
+	// const time = []
+	// const date = timeStamp(Date.now()).allDate
+	// const startDate = `${date} ${startTime}`
+	// const endDate = `${date} ${endTime}`
+	// const startTimeStamp = new Date(startDate).getTime()
+	// const endTimeStamp = new Date(endDate).getTime()
+	// const timeStr = 3600 * 1000 * timeInterval
+	// const sum = (endTimeStamp - startTimeStamp) / timeStr
+	// const count = sum % 2 == 0 ? sum : (sum - 1)
+	// let num = 0
+	// for (let i = startTimeStamp; i <= endTimeStamp; i = i + timeStr) {
 
-		if (isQuantum) {
-			num++
-			time.push({
-				begin: timeStamp(i, isQuantum).hour,
-				end: timeStamp(i + timeStr, isQuantum).hour,
-				disable: false
-			})
-		} else {
-			time.push({
-				time: timeStamp(i).hour,
-				disable: false
-			})
-		}
-		if (isQuantum && num >= count) return time
-	}
-	return time
+	// 	if (isQuantum) {
+	// 		num++
+	// 		time.push({
+	// 			begin: timeStamp(i, isQuantum).hour,
+	// 			end: timeStamp(i + timeStr, isQuantum).hour,
+	// 			disable: false
+	// 		})
+	// 	} else {
+	// 		time.push({
+	// 			time: timeStamp(i).hour,
+	// 			disable: false
+	// 		})
+	// 	}
+	// 	if (isQuantum && num >= count) return time
+	// }
+	// return time
+	 const time = [];
+	  
+	  // 添加早上8点到11点的时间段
+	  for (let i = 8; i <= 11; i++) {
+	    time.push({
+	      time: `${strFormat(i)}:00:00`,
+	      disable: false
+	    });
+	  }
+	
+	  // 添加中午1点到下午4点的时间段
+	  for (let i = 13; i <= 16; i++) {
+	    time.push({
+	      time: `${strFormat(i)}:00:00`,
+	      disable: false
+	    });
+	  }
+	
+	  // 添加晚上6点到9点的时间段
+	  for (let i = 18; i <= 21; i++) {
+	    time.push({
+	      time: `${strFormat(i)}:00:00`,
+	      disable: false
+	    });
+	  }
+	
+	  return time;
 }
